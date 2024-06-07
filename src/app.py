@@ -1,14 +1,14 @@
 from pickle import load
 import streamlit as st
 
-model = load(open("../models/decision_tree_classifier_default_42.sav", "rb"))
+model = load(open("models/decision_tree_classifier_default_42.sav", "rb"))
 class_dict = {
     "0": "Iris setosa",
     "1": "Iris versicolor",
     "2": "Iris virginica"
 }
 
-st.title("Iris - Model prediction")
+st.title("Modelo de Prediccion de Iris")
 
 val1 = st.slider("Petal width", min_value = 0.0, max_value = 4.0, step = 0.1)
 val2 = st.slider("Petal length", min_value = 0.0, max_value = 4.0, step = 0.1)
@@ -19,7 +19,3 @@ if st.button("Predict"):
     prediction = str(model.predict([[val1, val2, val3, val4]])[0])
     pred_class = class_dict[prediction]
     st.write("Prediction:", pred_class)
-
-
-print("hola")
-print(f'hola')
